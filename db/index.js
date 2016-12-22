@@ -1,9 +1,9 @@
 let Sequelize = require('sequelize');
 let config = require('../config');
 
-let sequelize = new Sequelize(config.db_database, config.db_username, config.db_password, {
-  host: config.db_host,
-  dialect: config.db_dialect
+let sequelize = new Sequelize(config.mysql.table, config.mysql.user, config.mysql.pwd, {
+  host: config.mysql.host,
+  dialect: config.mysql.dialect
 })
 
 sequelize.sync().then(function() {
