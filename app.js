@@ -7,6 +7,7 @@ const convert = require('koa-convert');
 const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
+const favicon = require('koa-favicon');
 const logger = require('koa-logger');
 const response_formatter = require('./middlewares/response_formatter');
 const logUtil = require('./utils/log_util');
@@ -19,6 +20,9 @@ const users = require('./routes/users');
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(require('koa-static')(__dirname + '/public'));
 
 app.use(views(__dirname + '/views', {
